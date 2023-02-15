@@ -37,6 +37,16 @@ class Room(BaseModel):
         return f'{self.type}{self.amount_people}'
 
 
+class Booking(models.Model):
+    user = models.ForeignKey(User, CASCADE)
+    room = models.ForeignKey(Room, CASCADE, 'room')
+    check_in = models.DateTimeField()
+    check_out = models.DateTimeField()
+
+    def __str__(self):
+        return f'{self.user}-{self.room}'
+
+
 RATE_CHOICES = [
     (1, '1 - Trash'),
     (2, '2 - Bad'),
