@@ -40,6 +40,7 @@ class Room(BaseModel):
 class Booking(models.Model):
     user = models.ForeignKey(User, CASCADE)
     room = models.ForeignKey(Room, CASCADE, 'room')
+    people = models.PositiveSmallIntegerField(null=True)
     check_in = models.DateTimeField()
     check_out = models.DateTimeField()
 
